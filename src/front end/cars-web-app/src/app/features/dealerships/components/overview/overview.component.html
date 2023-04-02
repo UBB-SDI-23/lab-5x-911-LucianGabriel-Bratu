@@ -1,0 +1,39 @@
+<h1>Dealerships</h1>
+
+<ng-container *ngIf="dealerships">
+
+    
+    <table>
+      <thead>
+        <tr>
+          <th class="headerText">#</th>
+          <th class="headerText">Name</th>
+          <th class="headerText">Capacity</th>
+          <th class="headerText">Address</th>
+          <th class="headerText">Reputation</th>
+          <th class="headerText">HasService</th>
+          <th class="headerText">OffersTradeIn</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dealership of dealerships">
+          <td class="cellText">{{ dealership['id'] }}</td>
+          <td class="cellText">{{ dealership['name'] }}</td>
+          <td class="cellText">{{ dealership['capacity'] }}</td>
+          <td class="cellText">{{ dealership['address'] }}</td>
+          <td class="cellText">{{ dealership['reputation'] }}</td>
+          <td class="cellText">{{ dealership['hasService'] }}</td>
+          <td class="cellText">{{ dealership['offersTradeIn'] }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br><br>
+
+    <button (click)="goToAdd()">Add dealership</button>
+    <br><br>
+    <button (click)="goToUpdate()">Update dealership</button>
+    <br><br>
+    <button (click)="goToDelete()">Delete dealership</button>
+
+  </ng-container>

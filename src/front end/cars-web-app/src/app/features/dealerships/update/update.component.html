@@ -1,0 +1,25 @@
+<h2>Update a dealership</h2>
+<form (submit)="updateDealership()">
+    <label for="dealershipID">Id</label>
+    <input id = "dealershipID" name = "dealershipID" [(ngModel)]="dealershipID">
+    <br><br>
+    <label for="name">Name</label>
+    <input id = "name" name = "name" [(ngModel)]="name">
+    <br><br>
+    <label for="capacity">Capacity</label>
+    <input id = "capacity" name = "capacity" [(ngModel)]="capacity">
+    <br><br>
+    <label for="address">Address</label>
+    <input id = "address" name = "address" [(ngModel)]="address">
+    <br><br>
+    <label for="reputation">Reputation</label>
+    <input id = "reputation" name = "reputation" [(ngModel)]="reputation">
+    <br><br>
+    <label for="hasService">HasService</label>
+    <input id = "hasService" name = "hasService" [(ngModel)]="hasService">
+    <br><br>
+    <label for="offersTradeIn">OffersTradeIn</label>
+    <input id = "offersTradeIn" name = "offersTradeIn" [(ngModel)]="offersTradeIn">
+    <br><br>
+    <button type="submit">Submit</button>
+</form>

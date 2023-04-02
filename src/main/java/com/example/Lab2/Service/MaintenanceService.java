@@ -8,6 +8,7 @@ import com.example.Lab2.Model.PerformsMaintenance;
 import com.example.Lab2.Repository.CarRepository;
 import com.example.Lab2.Repository.MaintenanceRepository;
 import com.example.Lab2.Repository.MechanicRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,6 +59,44 @@ public class MaintenanceService implements IMaintenanceService{
         maintenance1.setDifficulty(maintenance.getDifficulty());
         maintenance1.setUrgency(maintenance.getUrgency());
         return this.maintenanceRepository.save(maintenance1);
+    }
+
+    @Override
+    public List<PerformsMaintenance> bulkAddMechanicsForCars(Long carID, List<Mechanic> mechanicsList) {
+        List<PerformsMaintenance> performsMaintenanceList = new ArrayList<>();
+        Car car = this.carRepository.findById(carID).get();
+        for(Mechanic mechanic: mechanicsList){
+            List<PerformsMaintenance> performsMaintenanceList1 = new ArrayList<>();
+            PerformsMaintenance performsMaintenance = new PerformsMaintenance();
+            Mechanic mechanic1 = new Mechanic();
+            mechanic1.setCnp(mechanic.getCnp());
+            mechanic1.setAddress(mechanic.getAddress());
+            mechanic1.setName(mechanic.getName());
+            mechanic1.setExperience(mechanic.getExperience());
+            mechanic1.setFavouriteCarBrand(mechanic.getFavouriteCarBrand());
+
+            this.mechanicRepository.save(mechanic1);
+
+            performsMaintenance.setUrgency("urgent");
+            performsMaintenance.setDifficulty("easy");
+            performsMaintenance.setCar(car);
+            performsMaintenance.setMechanic(mechanic1);
+
+            this.maintenanceRepository.save(performsMaintenance);
+            performsMaintenanceList.add(performsMaintenance);
+
+            performsMaintenanceList1.add(performsMaintenance);
+            mechanic.setPerformsMaintenancesList(performsMaintenanceList1);
+
+            performsMaintenanceList1.clear();
+
+            performsMaintenanceList1 = car.getPerformsMaintenancesList();
+            performsMaintenanceList1.add(performsMaintenance);
+            car.setPerformsMaintenancesList(performsMaintenanceList);
+            this.mechanicRepository.save(mechanic1);
+        }
+        this.carRepository.save(car);
+        return performsMaintenanceList;
     }
 
     @Override

@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin
 public class CarController {
     @Autowired
     private CarService carService;
@@ -44,6 +45,7 @@ public class CarController {
     public CarDealershipDTO fetchCarByIdWithDealershipDTO(@PathVariable("carID") Long carID) {
         return this.carService.getOneCarWithDealershipObject(carID);
     }
+
 
     @PutMapping("/dealerships/{dealershipID}/cars/{carID}")
     public Car updateCar(@Valid @RequestBody Car car, @PathVariable("dealershipID") Long dealershipID, @PathVariable("carID") Long carID) {

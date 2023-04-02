@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin
 public class MechanicController {
     @Autowired private MechanicService mechanicService;
 

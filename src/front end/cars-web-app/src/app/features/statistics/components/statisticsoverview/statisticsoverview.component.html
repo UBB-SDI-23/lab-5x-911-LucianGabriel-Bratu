@@ -1,0 +1,34 @@
+<h1>Statistics</h1>
+
+
+<ng-container *ngIf="dealershipsStatistics">
+
+    
+    <table>
+      <thead>
+        <tr>
+          <th class="headerText">AvgInventory</th>
+          <th class="headerText">Id</th>
+          <th class="headerText">Name</th>
+          <th class="headerText">Capacity</th>
+          <th class="headerText">Address</th>
+          <th class="headerText">Reputation</th>
+          <th class="headerText">HasService</th>
+          <th class="headerText">OffersTradeIn</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let statistic of dealershipsStatistics">
+        <td class="cellText">{{ statistic.avgInventoryValue }}</td>
+          <td class="cellText">{{ statistic['dealershipDTO'].id }}</td>
+          <td class="cellText">{{ statistic['dealershipDTO'].name }}</td>
+          <td class="cellText">{{ statistic['dealershipDTO'].capacity }}</td>
+          <td class="cellText">{{ statistic['dealershipDTO'].address }}</td>
+          <td class="cellText">{{ statistic['dealershipDTO'].reputation }}</td>
+          <td class="cellText">{{ statistic['dealershipDTO'].hasService }}</td>
+          <td class="cellText">{{ statistic['dealershipDTO'].offersTradeIn }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </ng-container>
