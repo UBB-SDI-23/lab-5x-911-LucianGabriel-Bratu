@@ -1,6 +1,6 @@
-<h1>Dealerships</h1>
+<h1>Dealership</h1>
 
-<ng-container *ngIf="dealerships">
+<ng-container *ngIf="dealership">
 
     
     <table>
@@ -16,8 +16,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let dealership of dealerships; let i = index">
-          <td class="cellText"><a (click)="goToGetOne(dealership.id)">{{ i+1 }}</a></td>
+        <tr>
+          <td class="cellText">{{ dealership['id'] }}</td>
           <td class="cellText">{{ dealership['name'] }}</td>
           <td class="cellText">{{ dealership['capacity'] }}</td>
           <td class="cellText">{{ dealership['address'] }}</td>
@@ -27,13 +27,3 @@
         </tr>
       </tbody>
     </table>
-
-    <br><br>
-
-    <button (click)="goToAdd()">Add dealership</button>
-    <br><br>
-    <button (click)="goToUpdate()">Update dealership</button>
-    <br><br>
-    <button (click)="goToDelete()">Delete dealership</button>
-
-  </ng-container>

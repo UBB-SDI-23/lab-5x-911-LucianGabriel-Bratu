@@ -15,8 +15,8 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}dealerships`) as Observable<DealershipDTO[]>;
   }
 
-  getDealership(dealershipId: number): Observable<DealershipDTO>{
-    return this.http.get(`${this.baseUrl}dealerships/${dealershipId}`) as Observable<DealershipDTO>;
+  getDealership(id: number): Observable<DealershipDTO>{
+    return this.http.get(`${this.baseUrl}dealerships/${id}`) as Observable<DealershipDTO>;
   }
 
   addDealership(dealership: DealershipsDTO): Observable<DealershipsDTO>{

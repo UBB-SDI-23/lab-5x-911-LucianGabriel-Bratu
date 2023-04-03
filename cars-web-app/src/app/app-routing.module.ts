@@ -6,6 +6,7 @@ import { OverviewComponent } from './features/dealerships/components/overview/ov
 import { DeleteComponent } from './features/dealerships/delete/delete.component';
 import { UpdateComponent } from './features/dealerships/update/update.component';
 import { StatisticsoverviewComponent } from './features/statistics/components/statisticsoverview/statisticsoverview.component';
+import { GetOneComponentComponent } from './features/dealerships/components/get-one-component/get-one-component.component';
 
 const routes: Routes = [
   {
@@ -31,7 +32,11 @@ const routes: Routes = [
   {
     path: "dealerships/delete",
     component: DeleteComponent
-  }
+  },
+  {
+    path: "dealerships/:id",
+    component: GetOneComponentComponent
+  },
 ];
 
 @NgModule({

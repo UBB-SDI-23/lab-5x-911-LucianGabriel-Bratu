@@ -11,6 +11,7 @@ import { AddComponent } from './features/dealerships/add/add.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateComponent } from './features/dealerships/update/update.component';
 import { DeleteComponent } from './features/dealerships/delete/delete.component';
+import { GetOneComponentComponent } from './features/dealerships/components/get-one-component/get-one-component.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { DeleteComponent } from './features/dealerships/delete/delete.component'
     StatisticsoverviewComponent,
     AddComponent,
     UpdateComponent,
-    DeleteComponent
+    DeleteComponent,
+    GetOneComponentComponent
   ],
   imports: [
     BrowserModule,

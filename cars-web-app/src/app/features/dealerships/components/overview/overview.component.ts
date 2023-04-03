@@ -30,4 +30,8 @@ export class OverviewComponent implements OnInit {
   goToDelete(){
     this.router.navigateByUrl(`dealerships/delete`);
   }
+
+  goToGetOne(id: number){
+    this.router.navigateByUrl(`dealerships/${id}`);
+  }
 }
